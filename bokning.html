@@ -1,247 +1,59 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>CleanRide UF – Boka biltvätt</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #111;
-    }
-    header {
-      background: #000;
-      padding: 20px;
-      color: #fff;
-      text-align: center;
-      font-size: 22px;
-      letter-spacing: 1px;
-    }
-    main {
-      max-width: 1100px;
-      margin: 20px auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-      padding: 0 20px;
-    }
-    @media (max-width: 900px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    label {
-      font-weight: bold;
-      margin-bottom: 6px;
-      display: block;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #bbb;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
-    .option {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-    .option input {
-      margin-right: 10px;
-    }
-    .summary-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      font-size: 15px;
-    }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-      padding: 6px 0;
-    }
-    .btn {
-      width: 100%;
-      padding: 12px;
-      background: #0a0;
-      border-radius: 10px;
-      border: none;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #090;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokning – CleanRide UF</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    CLEANRIDE UF – BOKNING
-  </header>
 
-  <main>
-    <form id="bookingForm" class="card">
+<header>
+    <h1>Bokning</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="om-oss.html">Om oss</a></li>
+            <li><a href="paket.html">Paket</a></li>
+            <li><a href="fore-efter.html">Före & Efter</a></li>
+            <li><a href="bokning.html">Bokning</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
 
-      <h2>1. Välj paket</h2>
+<section class="content">
+    <h2>Boka tid</h2>
+    <p>Fyll i formuläret nedan så återkommer vi med bekräftelse.</p>
 
-      <label class="option">
-        <span><input type="radio" name="package" value="Snabbtvätt" data-price="399"> Snabbtvätt – 399 kr</span>
-      </label>
+    <form>
+        <label for="namn">Namn</label>
+        <input type="text" id="namn" name="namn" required>
 
-      <label class="option">
-        <span><input type="radio" name="package" value="Standard" data-price="699"> CleanRide Standard – 699 kr</span>
-      </label>
+        <label for="epost">E-post</label>
+        <input type="email" id="epost" name="epost" required>
 
-      <label class="option">
-        <span><input type="radio" name="package" value="Premium" data-price="999"> CleanRide Premium – 999 kr</span>
-      </label>
+        <label for="telefon">Telefon</label>
+        <input type="text" id="telefon" name="telefon" required>
 
-      <label class="option">
-        <span><input type="radio" name="package" value="Ultra" data-price="1399"> CleanRide Ultra – 1399 kr</span>
-      </label>
+        <label for="paket">Välj paket</label>
+        <select id="paket" name="paket">
+            <option>Exteriör tvätt</option>
+            <option>Interiör städ</option>
+            <option>Full rekond</option>
+        </select>
 
-      <h2>2. Tillval</h2>
+        <label for="datum">Önskat datum</label>
+        <input type="date" id="datum" name="datum">
 
-      <label class="option">
-        <span><input type="checkbox" name="addon" value="Fälgrengöring" data-price="149"> Fälgrengöring +149 kr</span>
-      </label>
-
-      <label class="option">
-        <span><input type="checkbox" name="addon" value="Husdjursrengöring" data-price="249"> Husdjursrengöring +249 kr</span>
-      </label>
-
-      <label class="option">
-        <span><input type="checkbox" name="addon" value="Luktbehandling" data-price="199"> Luktbehandling +199 kr</span>
-      </label>
-
-      <label class="option">
-        <span><input type="checkbox" name="addon" value="Motortvätt" data-price="199"> Motortvätt +199 kr</span>
-      </label>
-
-      <h2>3. Bilinformation</h2>
-
-      <label>Märke</label>
-      <input type="text" id="brand" required>
-
-      <label>Modell</label>
-      <input type="text" id="model" required>
-
-      <label>Registreringsnummer</label>
-      <input type="text" id="reg" required>
-
-      <label>Storlek</label>
-      <select id="size" required>
-        <option value="">Välj</option>
-        <option value="Small" data-multiplier="1">Liten bil</option>
-        <option value="Medium" data-multiplier="1.1">Mellan</option>
-        <option value="Large" data-multiplier="1.25">SUV/skåpbil</option>
-      </select>
-
-      <h2>4. Plats & tid</h2>
-
-      <label>Adress</label>
-      <input type="text" id="address" required>
-
-      <label>Ort</label>
-      <input type="text" id="city" required>
-
-      <label>Datum</label>
-      <input type="date" id="date" required>
-
-      <label>Tid</label>
-      <input type="time" id="time" required>
-
-      <h2>5. Kontaktuppgifter</h2>
-
-      <label>Namn</label>
-      <input type="text" id="name" required>
-
-      <label>Telefon</label>
-      <input type="text" id="phone" required>
-
-      <label>E-post</label>
-      <input type="email" id="email" required>
-
-      <button type="submit" class="btn">Skicka bokningsförfrågan</button>
-
+        <button type="submit">Skicka bokning</button>
     </form>
+</section>
 
-    <!-- SUMMARY BOX -->
-    <div class="summary-box">
-      <h2>Din bokning</h2>
-
-      <div class="summary-row"><span>Paket</span> <span id="sPackage">–</span></div>
-      <div class="summary-row"><span>Tillval</span> <span id="sAddons">–</span></div>
-      <div class="summary-row"><span>Storlek</span> <span id="sSize">–</span></div>
-      <div class="summary-row"><span>Datum</span> <span id="sDate">–</span></div>
-      <div class="summary-row"><span>Tid</span> <span id="sTime">–</span></div>
-
-      <h2>Totalpris:</h2>
-      <div class="summary-row"><span></span> <span id="sTotal">0 kr</span></div>
-    </div>
-
-  </main>
-
-  <script>
-    function updateSummary() {
-      let pkg = document.querySelector('input[name="package"]:checked');
-      let addons = document.querySelectorAll('input[name="addon"]:checked');
-      let sizeSelect = document.getElementById("size");
-      let date = document.getElementById("date").value;
-      let time = document.getElementById("time").value;
-
-      let sizeMultiplier = sizeSelect.options[sizeSelect.selectedIndex]?.dataset.multiplier || 1;
-
-      let total = 0;
-      if (pkg) total += Number(pkg.dataset.price);
-
-      addons.forEach(a => total += Number(a.dataset.price));
-
-      total = Math.round(total * sizeMultiplier);
-
-      document.getElementById("sPackage").textContent = pkg ? pkg.value : "–";
-
-      document.getElementById("sAddons").textContent =
-        addons.length ? Array.from(addons).map(a => a.value).join(", ") : "–";
-
-      document.getElementById("sSize").textContent = sizeSelect.value || "–";
-      document.getElementById("sDate").textContent = date || "–";
-      document.getElementById("sTime").textContent = time || "–";
-      document.getElementById("sTotal").textContent = total + " kr";
-    }
-
-    document.querySelectorAll("input, select").forEach(el => {
-      el.addEventListener("change", updateSummary);
-    });
-
-    document.getElementById("bookingForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Tack! Din bokningsförfrågan har skickats.");
-    });
-  </script>
+<footer>
+    <p>© 2025 CleanRide UF</p>
+</footer>
 
 </body>
 </html>
